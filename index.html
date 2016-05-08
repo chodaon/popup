@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title> Popup Test </title>
+  <link rel="stylesheet" type="text/css" href="css/index.css"/>
+  <!--[if lte IE 9]>
+		<link rel="stylesheet" type="text/css" href="css/ie9.css"/>
+  <![endif]-->
+  <!--[if IE 8]>
+		<link rel="stylesheet" type="text/css" href="css/ie8.css"/>
+  <![endif]-->
+  <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script>
+	/*value check*/
+	function submitMail(){
+		var tEmailAddr = document.getElementById("tEmailAddr");
+		var nBlogAddr = document.getElementById("nBlogAddr");
+		var recentAddr = document.getElementById("recentAddr");
+		var emailTitle = document.getElementById("emailTitle");
+		var messageArea = document.getElementById("messageArea");
+		
+		if(tEmailAddr.value == "" ){ 
+			alert("받는사람을 입력해 주세요.");
+			tEmailAddr.focus();
+			return false;
+		}	
+	
+		if(nBlogAddr.value ==  ""){
+			alert("이웃블로그를 선택해 주세요.");
+			nBlogAddr.focus();
+			return false;
+		}
+			
+		if(recentAddr.value ==  ""){
+			alert("최근에 사용한 주소를 선택해 주세요.");
+			recentAddr.focus();
+			return false;
+		}
+
+		if(emailTitle.value == ""){
+			alert("메일 제목을 입력해 주세요.");
+			emailTitle.focus();
+			return false;
+		}
+			
+		if(messageArea.value ==  ""){
+			alert("첨부메세지를 입력해 주세요");
+			messageArea.focus();
+		}
+	}
+  </script>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="test1Txt">
+			<h1>TEST01 _ POPUP</h1>
+			<p class="popupBtn">
+				<input type="button" id="clickBtn" value="popup 과제 보기"/>
+			</p>
+			<p class="explain">
+				<strong>TEST01 _ popup.html 설명</strong>
+				1. 위 'popup과제 보기'버튼을 누르시면 '블로그 글 메일로 보내기'가 popup창으로 보여지게 만들었습니다.<br/><br/>
+				2. '블로그 글 메일로 보내기'영역에서 input들의 id를 불러와 각 id의 value값에 값이 없으면 값을 넣으라고 alert창이 보여지고 focus가게 만들었습니다.<br/><br/>
+				3. '블로그 글 메일로 보내기'의 취소버튼 혹은 밖의 영역을 누르면 popup창이 없어지게 만들었습니다.<br/><br/>
+				4. 확인버튼 혹은 취소버튼 hover시 background-color를 변화되게 만들었습니다.
+			</p>
+		</div>
+	</div>
+	<div id="view">
+		<div id="mailTitle">
+			<h3>블로그 글 메일로 보내기</h3>
+		</div>
+		<div id="mailArea">
+			<form action="#" method="post" id="mailForm">
+				<table summary="블로그 글 메일로 보내기 팝업 창 입니다." class="mailTable">
+					<caption>블로그 글 메일로 보내기</caption>
+					<colgroup>
+						<col width="110px"/>
+						<col width="410px"/>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row"><label for="fEmailAddr">보내는 사람</label></th>
+							<td>
+								<input type="text" id="fEmailAddr" name="fEmailAddr" value="하얀나비 (paran0000@paran.com)" readonly="readonly"/>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" style="padding-bottom:115px;"><label for="tEmailAddr">받는사람</label></th>
+							<td>
+								<p>
+									<input type="text" id="tEmailAddr" name="tEmailAddr"/>
+								</p>
+								<p class="tEmailText">
+									* 여러명에게 보내실 경우[,] 또는 [;]로 구분해 주세요.<br/>
+									* 도메인까지 정확하게 적어주셔야 정상적인 메일발송이 됩니다.<br/>
+									* 최대 10명에게까지 보내실 수 있습니다.
+								</p>
+								<p>
+									<select id="nBlogAddr" name="nBlogAddr">
+										<option value="">이웃 블로그 주소</option>
+										<option value="http://blog.naver.com/y_y1xxxxx">blog.naver.com/y_y1xxxxx</option>
+										<option value="http://blog.naver.com/dearholmes">blog.naver.com/dearholmes</option>
+										<option value="http://blog.naver.com/slalom92">blog.naver.com/slalom92</option>
+										<option value="http://leehyekang.com/">leehyekang.com</option>
+									</select><!--
+									--><select id="recentAddr" name="recentAddr">
+										<option value="">최근에 사용한 주소</option>
+										<option value="www.st-company.net">www.st-company.net</option>
+										<option value="http://blog.naver.com/y_y1xxxxx">blog.naver.com/y_y1xxxxx</option>
+										<option value="http://leehyekang.com/">leehyekang.com</option>
+										<option value="http://blog.naver.com/slalom92">blog.naver.com/slalom92</option>
+									</select>
+								</p>
+								<p class="addMyAddr">
+									<a href="#" title="내 주소 추가 링크">내 주소 추가</a><span>&gt;</span>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label for="emailTitle">메일 제목</label>
+							</th>
+							<td>											
+								<input type="text" id="emailTitle" name="emailTitle"/>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" style="padding-bottom:100px;">
+								<label for="messageArea">첨부메세지</label>
+							</th>
+							<td>											
+								<textarea id="messageArea" cols="61" rows="10"></textarea>
+							</td>
+						</tr>	
+					</tbody>
+				</table>
+				<div id="mailBtn">
+					<input type="button" value="확인" title="확인버튼" onclick="submitMail();"/>
+					<input type="reset" id="closeBtn" value="취소" title="취소버튼"/>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="full">
+	</div>
+ </body>
+</html>
